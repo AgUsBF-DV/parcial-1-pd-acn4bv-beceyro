@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <!-- CSS -->
     <link rel="stylesheet" href="./mis-estilos.css" />
 
@@ -15,40 +18,38 @@
   </head>
 
   <!-- Contenido -->
-  <body style="background-color: #b2e4bb">
+  <body class="bg-green-500 min-h-screen flex flex-col">
     <!-- Navbar -->
     <nav
-      style="
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        padding: 20px;
-      "
+      class="flex justify-between items-center p-5 bg-emerald-800 shadow-md text-white"
     >
-      <div style="display: flex; align-items: baseline; gap: 10px">
-        <a href="#" style="display: inline">
-          <img
-            src="./img/icono2.png"
-            alt="Logo"
-            style="height: 50px; width: auto; display: block"
-          />
+      <!-- Logo / Marca -->
+      <div class="flex items-baseline gap-2">
+        <a href="#" class="px-4">
+          <img src="./img/flower-pot.png" alt="Logo" class="h-12 w-auto" />
         </a>
-        <span>Vivero Da Vinci</span>
+        <span class="self-center text-3xl font-bold whitespace-nowrap px-4"
+          >Vivero Da Vinci</span
+        >
       </div>
 
-      <div style="display: inline">
-        <span style="padding-right: 10px">Bienvenido, Nombre Usuario</span>
-        <span style="padding-left: 10px">Cerrar Sesión</span>
+      <!-- Usuario / Logout -->
+      <div class="flex items-baseline text-lg">
+        <span class="pr-4">Bienvenido, Nombre Usuario</span>
+        <a href="#" class="pl-4 font-semibold">Cerrar Sesión</a>
       </div>
     </nav>
 
-    <div style="padding-top: 50px; padding-bottom: 50px">
+    <!-- Contenido principal -->
+    <div class="p-12 flex-1">
       <p>Contenido</p>
     </div>
 
     <!-- Footer -->
-    <div style="text-align: center; padding: 20px">
-      <p>Escuela Da Vinci - Plataformas de Desarrollo - 2025</p>
+    <div class="text-center p-5 bg-emerald-800 shadow-md text-white">
+      <p class="text-lg font-semibold">
+        Escuela Da Vinci - Plataformas de Desarrollo - 2025
+      </p>
     </div>
 
     <!-- JavaScript -->
