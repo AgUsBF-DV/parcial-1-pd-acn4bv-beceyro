@@ -28,9 +28,9 @@
         <a href="#" class="px-4">
           <img src="./img/flower-pot.png" alt="Logo" class="h-12 w-auto" />
         </a>
-        <span class="self-center text-3xl font-bold whitespace-nowrap px-4"
-          >Vivero Da Vinci</span
-        >
+        <span class="self-center text-3xl font-bold whitespace-nowrap px-4">
+          Vivero Da Vinci
+        </span>
       </div>
 
       <!-- Usuario / Logout -->
@@ -40,9 +40,155 @@
       </div>
     </nav>
 
-    <!-- Contenido principal -->
+    <!-- Contenido -->
     <div class="p-12 flex-1">
-      <p>Contenido</p>
+      <div class="bg-green-100 rounded-lg shadow-md p-12 max-w-4xl mx-auto">
+        <!-- Titulo de seccion-->
+        <div class="mb-8 border-b-2 border-emerald-800 pb-4">
+          <h2 class="text-2xl font-bold text-emerald-800 mb-1">
+            💰 Nueva Venta
+          </h2>
+        </div>
+
+        <!-- Formulario Venta -->
+        <form class="flex flex-col gap-5">
+          <!-- Campo Cliente -->
+          <div>
+            <label class="block mb-2 font-bold text-emerald-800">
+              👤 Cliente
+            </label>
+            <select
+              class="w-full p-3 bg-gray-200 border border-emerald-800 rounded-md text-sm text-emerald-800 focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800"
+            >
+              <option value="">Seleccionar cliente...</option>
+              <option value="1">Nombre (DNI=12345678)</option>
+              <option value="2">Nombre (DNI=12345678)</option>
+              <option value="3">Nombre (DNI=12345678)</option>
+            </select>
+          </div>
+
+          <!-- Campo Vendedor -->
+          <div>
+            <label class="block mb-2 font-bold text-emerald-800">
+              🧑‍🌾 Vendedor
+            </label>
+            <div
+              class="p-3 border border-emerald-800 rounded-md text-emerald-800"
+            >
+              Nombre (DNI=12345678)
+            </div>
+          </div>
+
+          <!-- Carrito de Compras -->
+          <div class="border-t border-emerald-800 pt-5 mt-5">
+            <!-- Titulo de seccion -->
+            <h3 class="text-lg font-semibold text-emerald-800 mb-5">
+              🛒 Productos de la Venta
+            </h3>
+
+            <!-- Lista de productos -->
+            <div class="flex flex-col gap-4">
+              <!-- Item -->
+              <div
+                class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end bg-green-300 p-5 rounded-md border border-emerald-800"
+              >
+                <!-- Nombre producto -->
+                <div>
+                  <label class="block mb-1 font-bold text-emerald-800">
+                    Producto
+                  </label>
+                  <select
+                    class="w-full p-2 bg-gray-200 border border-emerald-800 rounded-md text-sm text-emerald-800 focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800"
+                  >
+                    <option value="">Seleccionar...</option>
+                    <option value="1">Rosa (ID: 1)</option>
+                    <option value="2">Cactus (ID: 2)</option>
+                    <option value="3">Jasmin (ID: 3)</option>
+                  </select>
+                </div>
+
+                <!-- Precio -->
+                <div>
+                  <label class="block mb-1 font-bold text-emerald-800">
+                    Precio
+                  </label>
+                  <div
+                    class="p-2 bg-green-100 border border-emerald-800 rounded-md text-sm text-emerald-800"
+                  >
+                    <span>$0.00</span>
+                  </div>
+                </div>
+
+                <!-- Cantidad -->
+                <div>
+                  <label class="block mb-1 font-bold text-emerald-800">
+                    Cantidad
+                  </label>
+                  <select
+                    class="w-full p-2 bg-gray-200 border border-emerald-800 rounded-md text-sm text-emerald-800 focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800"
+                  >
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                  </select>
+                </div>
+
+                <!-- Subtotal -->
+                <div>
+                  <label class="block mb-1 font-bold text-emerald-800">
+                    Subtotal
+                  </label>
+                  <div
+                    class="p-2 bg-green-100 border border-emerald-800 rounded-md text-sm font-bold text-emerald-800"
+                  >
+                    <span>$0.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Agregar Producto y Total -->
+            <div
+              class="mt-5 flex flex-col md:flex-row justify-between items-center gap-4"
+            >
+              <!-- Agregar Producto -->
+              <button
+                type="button"
+                class="px-4 py-2 bg-green-500 border border-emerald-800 text-white font-bold rounded-md hover:ring-2 hover:ring-emerald-800 hover:border-emerald-800 transition-colors duration-200"
+              >
+                Agregar Producto
+              </button>
+
+              <!-- Total -->
+              <div
+                class="bg-green-300 p-4 rounded-md border-2 border-emerald-800 font-bold text-emerald-800 flex items-center gap-2"
+              >
+                <p class="text-md">Total:</p>
+                <p class="text-xl">$0.00</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botones de Acción -->
+          <div
+            class="mt-8 flex flex-col sm:flex-row gap-5 justify-center text-white font-bold"
+          >
+            <button
+              type="submit"
+              class="px-8 py-3 bg-emerald-800 rounded-md hover:ring-4 hover:ring-green-500 hover:border-green-500 transition-colors duration-200"
+            >
+              Confirmar
+            </button>
+            <button
+              type="button"
+              class="px-8 py-3 bg-emerald-800 rounded-md hover:ring-4 hover:ring-green-500 hover:border-green-500 transition-colors duration-200"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
 
     <!-- Footer -->
