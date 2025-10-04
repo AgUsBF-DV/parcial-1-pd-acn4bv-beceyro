@@ -52,30 +52,32 @@
 
         <!-- Formulario Venta -->
         <form class="flex flex-col gap-5">
-          <!-- Campo Cliente -->
-          <div>
-            <label class="block mb-2 font-bold text-emerald-800">
-              👤 Cliente
-            </label>
-            <select
-              class="w-full p-3 bg-gray-200 border border-emerald-800 rounded-md text-sm text-emerald-800 focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800"
-            >
-              <option value="">Seleccionar cliente...</option>
-              <option value="1">Nombre (DNI=12345678)</option>
-              <option value="2">Nombre (DNI=12345678)</option>
-              <option value="3">Nombre (DNI=12345678)</option>
-            </select>
-          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
+            <!-- Campo Cliente -->
+            <div>
+              <label class="block mb-2 font-bold text-emerald-800">
+                👤 Cliente
+              </label>
+              <select
+                class="w-full p-3 bg-gray-200 border border-emerald-800 rounded-md text-sm text-emerald-800 focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800"
+              >
+                <option value="">Seleccionar cliente...</option>
+                <option value="1">Nombre (DNI=12345678)</option>
+                <option value="2">Nombre (DNI=12345678)</option>
+                <option value="3">Nombre (DNI=12345678)</option>
+              </select>
+            </div>
 
-          <!-- Campo Vendedor -->
-          <div>
-            <label class="block mb-2 font-bold text-emerald-800">
-              🧑‍🌾 Vendedor
-            </label>
-            <div
-              class="p-3 border border-emerald-800 rounded-md text-emerald-800"
-            >
-              Nombre (DNI=12345678)
+            <!-- Campo Vendedor -->
+            <div>
+              <label class="block mb-2 font-bold text-emerald-800">
+                🧑‍🌾 Vendedor
+              </label>
+              <div
+                class="p-3 border border-emerald-800 rounded-md text-emerald-800"
+              >
+                Nombre (DNI=12345678)
+              </div>
             </div>
           </div>
 
