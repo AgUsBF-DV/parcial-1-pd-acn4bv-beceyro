@@ -67,13 +67,13 @@ export class SelectProducto {
         // Agregar productos
         this.#productos.forEach(producto => {
             const opcion = document.createElement('option');
-            opcion.value = producto.id;
-            opcion.textContent = `${producto.nombre} (${producto.nombreCientifico}) - ID:${producto.id}`;
+            opcion.value = producto.getId();
+            opcion.textContent = `${producto.getNombre()} (${producto.getNombreCientifico()}) - ID:${producto.getId()}`;
             // Guardar datos del producto
-            opcion.dataset.precio = producto.precio;
-            opcion.dataset.stock = producto.stock;
-            opcion.dataset.nombre = producto.nombre;
-            opcion.dataset.nombreCientifico = producto.nombreCientifico;
+            opcion.dataset.precio = producto.getPrecio();
+            opcion.dataset.stock = producto.getStock();
+            opcion.dataset.nombre = producto.getNombre();
+            opcion.dataset.nombreCientifico = producto.getNombreCientifico();
 
             select.appendChild(opcion);
         });
