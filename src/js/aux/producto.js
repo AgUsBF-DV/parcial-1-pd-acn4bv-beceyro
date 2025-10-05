@@ -1,5 +1,5 @@
 // Importar la clase Producto desde modelos.js
-import { Producto } from './modelos.js';
+import { Producto } from '../model/producto.js';
 
 // Key para localStorage
 const STORAGE_PRODUCTOS = 'productos_vivero';
