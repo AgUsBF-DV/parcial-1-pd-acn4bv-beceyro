@@ -1,5 +1,6 @@
-// CLASES
-class Producto {
+// CLASE PRODUCTO
+
+export class Producto {
 
     // Propiedades
     id;
@@ -43,6 +44,3 @@ class Producto {
         return `Producto ID ${this.id}: ${this.nombre} (${this.nombreCientifico}) - $${this.precio} - Stock: ${this.stock}`;
     }
 }
-
-// Exportar la clase
-export { Producto };
