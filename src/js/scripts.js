@@ -8,7 +8,7 @@ import {
     obtenerProductos,
     obtenerProductosDisponibles,
     mostrarProductosEnConsola,
-} from './aux.js';
+} from './aux/producto.js';
 
 // Variable para pruebas y mensajes en consola
 const DEBUG_MODE = true;
