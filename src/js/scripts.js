@@ -1,46 +1,31 @@
 // JS PRINCIPAL
 
 // Importar funciones desde aux/producto.js
-import {
-    inicializarDatos,
-    limpiarDatos,
-    resetearDatos,
-    obtenerProductos,
-    obtenerProductosDisponibles,
-    mostrarProductosEnConsola,
-} from './aux/producto.js';
-
+import { resetearDatos } from './aux/producto.js';
 // Importar funciones desde aux/carrito.js
-import {
-    inicializarCarrito
-} from './aux/carrito.js';
+import { inicializarCarrito } from './aux/carrito.js';
 
 // Variable para pruebas y mensajes en consola
-const DEBUG_MODE = true;
+const DEBUG_MODE = false;
 
 // Ejecutar cuando se haya cargado el DOM
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     console.log();
-    console.log('Iniciando el sistema...');
-    console.log();
+    console.info('Iniciando el sistema...');
 
-    // Si estamos testeando, borrar datos almacenados
+    // Si estamos testeando,
     if (DEBUG_MODE) {
-        console.log('DEBUG_MODE activado');
-        console.log('Vaciando datos...');
-        limpiarDatos();
-        console.log();
+        console.warn('DEBUG_MODE activado');
     }
 
     // Inicialización de datos de prueba en localStorage
-    inicializarDatos();
-    console.log();
+    resetearDatos();
 
     // Inicialización del carrito
     inicializarCarrito();
     console.log();
 
     // Sistema listo
-    console.log('Sistema inicializado');
+    console.info('Sistema inicializado');
     console.log();
 });
