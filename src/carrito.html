@@ -114,12 +114,10 @@
                     Producto
                   </label>
                   <select
+                    id="select-nombre-producto"
                     class="w-full p-2 bg-gray-200 border border-emerald-800 rounded-md text-sm text-emerald-800 focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800"
                   >
-                    <option value="">Seleccionar...</option>
-                    <option value="1">Rosa (ID: 1)</option>
-                    <option value="2">Cactus (ID: 2)</option>
-                    <option value="3">Jasmin (ID: 3)</option>
+                    <option value="">Seleccionar un producto...</option>
                   </select>
                 </div>
                 <!-- Datos del producto -->
@@ -134,7 +132,7 @@
                     <div
                       class="p-2 bg-green-100 border border-emerald-800 rounded-md text-sm text-emerald-800"
                     >
-                      <span>$0.00</span>
+                      $<span id="campo-precio-producto">0</span>
                     </div>
                   </div>
 
@@ -144,12 +142,10 @@
                       Cantidad
                     </label>
                     <select
+                      id="select-cantidad-producto"
                       class="w-full p-2 bg-gray-200 border border-emerald-800 rounded-md text-sm text-emerald-800 focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800"
                     >
                       <option value="0">0</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
                     </select>
                   </div>
 
@@ -161,7 +157,7 @@
                     <div
                       class="p-2 bg-green-100 border border-emerald-800 rounded-md text-sm font-bold text-emerald-800"
                     >
-                      <span>$0.00</span>
+                      $<span id="campo-subtotal-producto">0</span>
                     </div>
                   </div>
                 </div>
@@ -185,7 +181,7 @@
                 class="bg-green-300 p-4 rounded-md border-2 border-emerald-800 font-bold text-emerald-800 flex items-center gap-2"
               >
                 <p class="text-md">Total:</p>
-                <p class="text-xl">$0.00</p>
+                <p class="text-xl">$<span id="campo-total-carrito">0</span></p>
               </div>
             </div>
           </div>
@@ -221,6 +217,7 @@
     <!-- JavaScript -->
     <script type="module" src="./js/model/producto.js"></script>
     <script type="module" src="./js/aux/producto.js"></script>
+    <script type="module" src="./js/aux/carrito.js"></script>
     <script type="module" src="./js/scripts.js"></script>
   </body>
 </html>

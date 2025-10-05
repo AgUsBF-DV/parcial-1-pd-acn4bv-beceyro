@@ -1,6 +1,6 @@
-// JS principal
+// JS PRINCIPAL
 
-// Importar funciones desde aux.js
+// Importar funciones desde aux/producto.js
 import {
     inicializarDatos,
     limpiarDatos,
@@ -10,48 +10,37 @@ import {
     mostrarProductosEnConsola,
 } from './aux/producto.js';
 
+// Importar funciones desde aux/carrito.js
+import {
+    inicializarCarrito
+} from './aux/carrito.js';
+
 // Variable para pruebas y mensajes en consola
 const DEBUG_MODE = true;
 
-// Inicio
-console.log();
-console.log('Iniciando el sistema...');
-console.log();
-
-// Si estamos testeando, borrar datos almacenados
-if (DEBUG_MODE) {
-    console.log('DEBUG_MODE activado');
-    console.log('Vaciando datos...');
-    limpiarDatos();
+// Ejecutar cuando se haya cargado el DOM
+document.addEventListener('DOMContentLoaded', function() {
     console.log();
-}
-
-// Inicializacion de datos de prueba en localStorage
-inicializarDatos();
-console.log();
-
-if (DEBUG_MODE) {
-    console.log('Modo DEBUG activado');
+    console.log('Iniciando el sistema...');
     console.log();
 
-    // Mostrar TODOS los productos en consola
-    // console.log('Listado de TODOS los Productos:');
-    // mostrarProductosEnConsola(obtenerProductos());
-    // console.log();
+    // Si estamos testeando, borrar datos almacenados
+    if (DEBUG_MODE) {
+        console.log('DEBUG_MODE activado');
+        console.log('Vaciando datos...');
+        limpiarDatos();
+        console.log();
+    }
 
-    // Mostrar solo productos con stock > 0
-    // console.log('Listado de los Productos con stock > 0:');
-    // mostrarProductosEnConsola(obtenerProductosDisponibles());
-    // console.log();
+    // Inicialización de datos de prueba en localStorage
+    inicializarDatos();
+    console.log();
 
-    // Resetear datos de prueba
-    // console.log('Reseteando datos de prueba...');
-    // resetearDatos();
-    // console.log();
+    // Inicialización del carrito
+    inicializarCarrito();
+    console.log();
 
-    
-}
-
-// Sistema listo
-console.log('Sistema listo.');
-console.log();
+    // Sistema listo
+    console.log('Sistema inicializado');
+    console.log();
+});
