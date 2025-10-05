@@ -1,0 +1,128 @@
+// Componente: Select dropdown producto
+
+export class SelectProducto {
+
+    // Atributos
+    #id;
+    #hayCambio;
+    #productos;
+    #productoSeleccionado;
+    #elemento;
+
+    // Constructor
+    constructor(id, productos = [], hayCambio = null) {
+        this.#id = id;
+        this.#productos = productos;
+        this.#hayCambio = hayCambio;
+        this.#productoSeleccionado = null;
+        this.#elemento = this.#crearElemento();
+        this.#poblarOpciones();
+        this.#agregarListener();
+    }
+
+    // Getters
+    getProductoSeleccionado() {
+        return this.#productoSeleccionado;
+    }
+
+    getElemento() {
+        return this.#elemento;
+    }
+
+    getProductos() {
+        return this.#productos;
+    }
+
+    // Setters
+    setProductos(productos) {
+        this.#productos = productos;
+        this.#poblarOpciones();
+    }
+
+    setProductoSeleccionado(id) {
+        const select = this.#elemento.querySelector('select');
+        if (select) {
+            select.value = id;
+            this.#actualizarEventoCambio({ target: select });
+        }
+    }
+
+    // Resetear selección
+    reset() {
+        this.#productoSeleccionado = null;
+        const select = this.#elemento.querySelector('select');
+        if (select) {
+            select.value = '';
+        }
+    }
+
+    // Crear elemento DOM (método privado)
+    #crearElemento() {
+        const div = document.createElement('div');
+        div.innerHTML = `
+            <label class="block mb-1 font-bold text-emerald-800">
+                Producto
+            </label>
+            <select
+                id="${this.#id}"
+                class="w-full p-2 bg-gray-200 border border-emerald-800 rounded-md text-sm text-emerald-800 focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800"
+            >
+                <option value="">Seleccionar un producto...</option>
+            </select>
+        `;
+        return div;
+    }
+
+    // Poblar opciones del select (método privado)
+    #poblarOpciones() {
+        const select = this.#elemento.querySelector('select');
+        // Limpiar opciones existentes (excepto la primera)
+        while (select.children.length > 1) {
+            select.removeChild(select.lastChild);
+        }
+        // Agregar productos
+        this.#productos.forEach(producto => {
+            const opcion = document.createElement('option');
+            opcion.value = producto.id;
+            opcion.textContent = `${producto.nombre} (${producto.nombreCientifico}) - ID:${producto.id}`;
+            // Guardar datos del producto
+            opcion.dataset.precio = producto.precio;
+            opcion.dataset.stock = producto.stock;
+            opcion.dataset.nombre = producto.nombre;
+            opcion.dataset.nombreCientifico = producto.nombreCientifico;
+
+            select.appendChild(opcion);
+        });
+    }
+
+    // Cargar listener de cambio
+    #agregarListener() {
+        const select = this.#elemento.querySelector('select');
+        select.addEventListener('change', (e) => this.#actualizarEventoCambio(e));
+    }
+
+    // Manejar evento de cambio con callback
+    #actualizarEventoCambio(event) {
+        const eleccion = event.target.options[event.target.selectedIndex];
+        // Validar selección
+        if (eleccion.value === '') {
+            this.#productoSeleccionado = null;
+            if (this.#hayCambio) {
+                this.#hayCambio(null);
+            }
+            return;
+        }
+        // Crear objeto del producto seleccionado
+        this.#productoSeleccionado = {
+            id: eleccion.value,
+            nombre: eleccion.dataset.nombre,
+            nombreCientifico: eleccion.dataset.nombreCientifico,
+            precio: parseFloat(eleccion.dataset.precio),
+            stock: parseInt(eleccion.dataset.stock)
+        };
+        // Llamar callback si existe
+        if (this.#hayCambio) {
+            this.#hayCambio(this.#productoSeleccionado);
+        }
+    }
+}
