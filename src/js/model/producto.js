@@ -70,4 +70,15 @@ export class Producto {
     mostrarInfo() {
         return `Producto ID ${this.#id}: ${this.#nombre} (${this.#nombreCientifico}) - $${this.#precio} - Stock: ${this.#stock}`;
     }
+
+    // Serialización para JSON
+    toJSON() {
+        return {
+            id: this.getId(),
+            nombre: this.getNombre(),
+            nombreCientifico: this.getNombreCientifico(),
+            precio: this.getPrecio(),
+            stock: this.getStock()
+        };
+    }
 }

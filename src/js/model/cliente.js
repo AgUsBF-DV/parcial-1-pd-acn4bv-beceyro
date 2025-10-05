@@ -55,6 +55,17 @@ export class Cliente {
     }
 
     armarLabel() {
-        return `${this.#nombreCompleto} (${this.#telefono})`;
+        return `${this.#nombreCompleto} (Tel.:${this.#telefono})`;
+    }
+
+    // Serialización para JSON
+    toJSON() {
+        return {
+            id: this.getId(),
+            nombreCompleto: this.getNombreCompleto(),
+            email: this.getEmail(),
+            direccion: this.getDireccion(),
+            telefono: this.getTelefono()
+        };
     }
 }
