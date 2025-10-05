@@ -20,27 +20,11 @@ export class SelectCantidad {
     }
 
     // Getters
-    getCantidadMax() {
-        return this.#cantidadMax;
-    }
-
-    getCantidad() {
-        return this.#cantidad;
-    }
-
     getElemento() {
         return this.#elemento;
     }
 
     // Setters
-    setCantidad(cantidad) {
-        const elemento = this.#elemento.querySelector('select');
-        if (elemento && cantidad >= 0 && cantidad <= this.#cantidadMax) {
-            this.#cantidad = cantidad;
-            elemento.value = cantidad;
-        }
-    }
-
     setCantidadMax(cantidadMax) {
         if (cantidadMax >= 0) {
             this.#cantidadMax = cantidadMax;
@@ -53,7 +37,6 @@ export class SelectCantidad {
         this.#cantidad = 0;
         const select = this.#elemento.querySelector('select');
         if (select) {
-            // select.innerHTML = '<option value="0">0</option>';
             select.value = 0;
         }
     }
@@ -66,7 +49,7 @@ export class SelectCantidad {
                 Cantidad
             </label>
             <select
-                id="${this.id}"
+                id="${this.#id}"
                 class="w-full p-2 bg-gray-200 border border-emerald-800 rounded-md text-sm text-emerald-800 focus:ring-2 focus:ring-emerald-800 focus:border-emerald-800"
             >
                 <option value="0">0</option>
@@ -87,7 +70,6 @@ export class SelectCantidad {
             opcion.textContent = i === 1 ? '1 unidad' : `${i} unidades`;
             select.appendChild(opcion);
         }
-
         // Resetear cantidad seleccionada
         this.#cantidad = 0;
         select.value = 0;

@@ -21,30 +21,14 @@ export class SelectProducto {
     }
 
     // Getters
-    getProductoSeleccionado() {
-        return this.#productoSeleccionado;
-    }
-
     getElemento() {
         return this.#elemento;
-    }
-
-    getProductos() {
-        return this.#productos;
     }
 
     // Setters
     setProductos(productos) {
         this.#productos = productos;
         this.#poblarOpciones();
-    }
-
-    setProductoSeleccionado(id) {
-        const select = this.#elemento.querySelector('select');
-        if (select) {
-            select.value = id;
-            this.#actualizarEventoCambio({ target: select });
-        }
     }
 
     // Resetear selección
