@@ -70,10 +70,45 @@ function traerProductos() {
     }
 }
 
-// Exportar las funciones
+// Vaciar localStorage
+function limpiarDatos() {
+    localStorage.removeItem(STORAGE_PRODUCTOS);
+    productos = [];
+    console.log('localStorage vacio');
+}
+
+// Resetear datos
+function resetearDatos() {
+    limpiarDatos();
+    inicializarDatos();
+}
+
+// Obtener lista de los productos
+function obtenerProductos() {
+    return productos;
+}
+
+// Obtener lista de los productos con stock > 0
+function obtenerProductosDisponibles() {
+    return productos.filter(producto => producto.estaDisponible());
+}
+
+// Mostrar listado de productos en consola
+function mostrarProductosEnConsola(productos) {
+    productos.forEach(producto => {
+        console.log(`${producto.mostrarInfo()}`);
+    });
+}
+
+// Exportar las funciones que necesitas usar en otros archivos
 export {
     inicializarDatos,
     guardarProductos,
     traerProductos,
+    limpiarDatos,
+    resetearDatos,
+    obtenerProductos,
+    obtenerProductosDisponibles,
+    mostrarProductosEnConsola,
     productos,
 };
