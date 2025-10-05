@@ -35,19 +35,21 @@ if (DEBUG_MODE) {
     console.log();
 
     // Mostrar TODOS los productos en consola
-    console.log('Listado de TODOS los Productos:');
-    mostrarProductosEnConsola(obtenerProductos());
-    console.log();
+    // console.log('Listado de TODOS los Productos:');
+    // mostrarProductosEnConsola(obtenerProductos());
+    // console.log();
 
     // Mostrar solo productos con stock > 0
-    console.log('Listado de los Productos con stock > 0:');
-    mostrarProductosEnConsola(obtenerProductosDisponibles());
-    console.log();
+    // console.log('Listado de los Productos con stock > 0:');
+    // mostrarProductosEnConsola(obtenerProductosDisponibles());
+    // console.log();
 
     // Resetear datos de prueba
-    console.log('Reseteando datos de prueba...');
-    resetearDatos();
-    console.log();
+    // console.log('Reseteando datos de prueba...');
+    // resetearDatos();
+    // console.log();
+
+    
 }
 
 // Sistema listo
