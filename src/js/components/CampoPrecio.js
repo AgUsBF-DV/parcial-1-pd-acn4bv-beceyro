@@ -10,30 +10,31 @@ export class CampoPrecio {
     // Constructor
     constructor(id, precio = 0) {
         this.#id = id;
-        this.#precio = precio;
-        this.#elemento = this._crearElemento();
+        this.#elemento = this.#crearElemento();
+        this.setPrecio(precio);
     }
 
     // Getters
-    getPrecio() {
-        return this.#precio;
-    }
-
     getElemento() {
         return this.#elemento;
     }
 
     // Setter
     setPrecio(precio) {
-        this.#precio = precio;
         const elemento = this.#elemento.querySelector(`#${this.#id}`);
-        if (elemento) {
+        if (elemento && precio >= 0) {
+            this.#precio = precio;
             elemento.textContent = this.#precio;
         }
     }
 
+    // Resetear precio
+    reset() {
+        this.setPrecio(0);
+    }
+
     // Crear elemento DOM (método privado)
-    _crearElemento() {
+    #crearElemento() {
         const div = document.createElement('div');
         div.innerHTML = `
             <label class="block mb-1 font-bold text-emerald-800">
@@ -44,10 +45,5 @@ export class CampoPrecio {
             </div>
         `;
         return div;
-    }
-
-    // Resetear precio
-    reset() {
-        this.setPrecio(0);
     }
 }

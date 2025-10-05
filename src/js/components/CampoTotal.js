@@ -10,16 +10,11 @@ export class CampoTotal {
     // Constructor
     constructor(valor = 0) {
         this.#id = 'total-carrito';
-        // this.#valor = valor;
         this.#elemento = this.#crearElemento();
         this.setValor(valor);
     }
 
     // Getters
-    getTotal() {
-        return this.#valor;
-    }
-
     getElemento() {
         return this.#elemento;
     }
