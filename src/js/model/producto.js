@@ -22,10 +22,10 @@ export class Producto {
     // Verificar stock
     estaDisponible(cantidad = 1) {
         if (this.stock >= cantidad) {
-            console.log(`Stock suficiente (ID:${this.id}, disponibles: ${this.stock}, solicitadas: ${cantidad})`);
+            // console.log(`Stock suficiente (ID:${this.id}, disponibles: ${this.stock}, solicitadas: ${cantidad})`);
             return true;
         } else {
-            console.log(`Stock insuficiente (ID:${this.id}, disponibles: ${this.stock}, solicitadas: ${cantidad})`);
+            // console.log(`Stock insuficiente (ID:${this.id}, disponibles: ${this.stock}, solicitadas: ${cantidad})`);
             return false;
         }
     }

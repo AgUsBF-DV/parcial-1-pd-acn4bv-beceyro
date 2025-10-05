@@ -1,4 +1,4 @@
-// Importar la clase Producto desde modelos.js
+// Importar clases/funciones necesarias
 import { Producto } from '../model/producto.js';
 
 // Key para localStorage
