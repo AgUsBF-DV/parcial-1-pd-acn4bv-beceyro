@@ -40,7 +40,7 @@ class Producto {
 
     // Mostrar info
     mostrarInfo() {
-        return `Producto: ${this.nombre} (${this.nombreCientifico}) - $${this.precio} - Stock: ${this.stock}`;
+        return `Producto ID ${this.id}: ${this.nombre} (${this.nombreCientifico}) - $${this.precio} - Stock: ${this.stock}`;
     }
 }
 
