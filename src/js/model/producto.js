@@ -2,38 +2,65 @@
 
 export class Producto {
 
-    // Propiedades
-    id;
-    nombre;
-    nombreCientifico;
-    precio;
-    stock;
+    // Campos privados
+    #id;
+    #nombre;
+    #nombreCientifico;
+    #precio;
+    #stock;
 
     // Constructor
     constructor(id, nombre, nombreCientifico, precio, stock) {
-        this.id = id;
-        this.nombre = nombre;
-        this.nombreCientifico = nombreCientifico;
-        this.precio = precio;
-        this.stock = stock;
+        this.#id = id;
+        this.#nombre = nombre;
+        this.#nombreCientifico = nombreCientifico;
+        this.#precio = Number(precio) || 0;
+        this.#stock = Number(stock) || 0;
+    }
+
+    // Getters
+    getId() {
+        return this.#id;
+    }
+    getNombre() {
+        return this.#nombre;
+    }
+    getNombreCientifico() {
+        return this.#nombreCientifico;
+    }
+    getPrecio() {
+        return this.#precio;
+    }
+    getStock() {
+        return this.#stock;
+    }
+
+    // Setters
+    setNombre(nombre) {
+        this.#nombre = String(nombre);
+    }
+    setNombreCientifico(nombreCientifico) {
+        this.#nombreCientifico = String(nombreCientifico);
+    }
+    setPrecio(precio) {
+        const n = Number(precio);
+        this.#precio = Number.isFinite(n) ? n : this.#precio;
+    }
+    setStock(stock) {
+        const n = Number(stock);
+        this.#stock = Number.isFinite(n) ? n : this.#stock;
     }
 
     // Metodos
     // Verificar stock
     estaDisponible(cantidad = 1) {
-        if (this.stock >= cantidad) {
-            // console.log(`Stock suficiente (ID:${this.id}, disponibles: ${this.stock}, solicitadas: ${cantidad})`);
-            return true;
-        } else {
-            // console.log(`Stock insuficiente (ID:${this.id}, disponibles: ${this.stock}, solicitadas: ${cantidad})`);
-            return false;
-        }
+        return this.#stock >= cantidad;
     }
 
     // Descontar stock
     descontarStock(cantidad) {
         if (this.estaDisponible(cantidad)) {
-            this.stock -= cantidad;
+            this.#stock -= cantidad;
             return true;
         }
         return false;
@@ -41,6 +68,6 @@ export class Producto {
 
     // Mostrar info
     mostrarInfo() {
-        return `Producto ID ${this.id}: ${this.nombre} (${this.nombreCientifico}) - $${this.precio} - Stock: ${this.stock}`;
+        return `Producto ID ${this.#id}: ${this.#nombre} (${this.#nombreCientifico}) - $${this.#precio} - Stock: ${this.#stock}`;
     }
 }
