@@ -23,23 +23,29 @@ const datosProductosPrueba = [
 
 // Cargar datos de prueba en localStorage
 function inicializarDatos() {
-    // Buscar datos en localStorage
-    const productosGuardados = localStorage.getItem(STORAGE_PRODUCTOS);
-    // Verificar si se encontraron datos guardados
-    if (!productosGuardados) {
-        console.log('No se encontraron datos en localStorage >> Guardando datos de prueba');
-        // Cargar lista de objetos Producto
-        productos = datosProductosPrueba.map(dato =>
-            new Producto(dato.id, dato.nombre, dato.nombreCientifico, dato.precio, dato.stock)
-        )
-        // Guardar productos en localStorage
-        guardarProductos(productos);
-    } else {
-        console.log('Existen datos guardados en localStorage >> Cargando datos');
-        traerProductos();
+    console.info('Inicializando datos de prueba...');
+    try {
+        // Buscar datos en localStorage
+        const productosGuardados = localStorage.getItem(STORAGE_PRODUCTOS);
+        // Verificar si se encontraron datos guardados
+        if (!productosGuardados) {
+            console.log('No se encontraron datos en localStorage');
+            console.log('Guardando datos de prueba...');
+            // Cargar lista de objetos Producto
+            productos = datosProductosPrueba.map(dato =>
+                new Producto(dato.id, dato.nombre, dato.nombreCientifico, dato.precio, dato.stock)
+            )
+            // Guardar productos en localStorage
+            guardarProductos(productos);
+        } else {
+            console.log('Existen datos guardados en localStorage >> Cargando datos');
+            traerProductos();
+        }
+    }
+    catch (error) {
+        console.error('Error en inicializarDatos():', error);
     }
 }
-
 // Guardar productos en localStorage
 function guardarProductos(productos) {
     try {
@@ -72,13 +78,15 @@ function traerProductos() {
 
 // Vaciar localStorage
 function limpiarDatos() {
+    console.log('Limpiando datos pre-existentes...');
     localStorage.removeItem(STORAGE_PRODUCTOS);
     productos = [];
-    console.log('localStorage vacio');
+    console.log('localStorage reseteado');
 }
 
 // Resetear datos
 function resetearDatos() {
+    console.info('Reseteando datos de prueba...');
     limpiarDatos();
     inicializarDatos();
 }
@@ -102,13 +110,6 @@ function mostrarProductosEnConsola(productos) {
 
 // Exportar las funciones que necesitas usar en otros archivos
 export {
-    inicializarDatos,
-    guardarProductos,
-    traerProductos,
-    limpiarDatos,
     resetearDatos,
-    obtenerProductos,
     obtenerProductosDisponibles,
-    mostrarProductosEnConsola,
-    productos,
 };
