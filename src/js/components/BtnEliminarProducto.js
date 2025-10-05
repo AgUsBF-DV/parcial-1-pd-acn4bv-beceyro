@@ -33,7 +33,8 @@ export class BtnEliminarProducto {
     #crearElemento() {
         const boton = document.createElement('button');
         boton.type = 'button';
-        boton.className = 'px-3 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 text-sm font-bold transition-colors duration-200';
+        // ocupar todo el ancho del contenedor y centrar el texto
+        boton.className = 'w-full flex items-center justify-center p-2 bg-red-500 text-white rounded-md hover:bg-red-600  border border-red-800 text-sm font-bold transition-colors duration-200';
         return boton;
     }
 
