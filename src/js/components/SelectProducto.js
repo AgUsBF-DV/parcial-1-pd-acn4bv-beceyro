@@ -82,12 +82,12 @@ export class SelectProducto {
     // Cargar listener de cambio
     #agregarListener() {
         const select = this.#elemento.querySelector('select');
-        select.addEventListener('change', (e) => this.#actualizarEventoCambio(e));
+        select.addEventListener('change', (evento) => this.#actualizarEventoCambio(evento));
     }
 
     // Manejar evento de cambio con callback
-    #actualizarEventoCambio(event) {
-        const eleccion = event.target.options[event.target.selectedIndex];
+    #actualizarEventoCambio(evento) {
+        const eleccion = evento.target.options[evento.target.selectedIndex];
         // Validar selección
         if (eleccion.value === '') {
             this.#productoSeleccionado = null;

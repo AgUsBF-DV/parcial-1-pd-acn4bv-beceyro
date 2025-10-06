@@ -78,12 +78,12 @@ export class SelectCantidad {
     // Cargar listener de cambio
     #agregarListener() {
         const select = this.#elemento.querySelector('select');
-        select.addEventListener('change', (e) => this.#actualizarEventoCambio(e));
+        select.addEventListener('change', (evento) => this.#actualizarEventoCambio(evento));
     }
 
     // Manejar evento de cambio con callback
-    #actualizarEventoCambio(event) {
-        this.#cantidad = parseInt(event.target.value) || 0;
+    #actualizarEventoCambio(evento) {
+        this.#cantidad = parseInt(evento.target.value) || 0;
         // Llamar callback si existe
         if (this.#hayCambio) {
             this.#hayCambio(this.#cantidad);
