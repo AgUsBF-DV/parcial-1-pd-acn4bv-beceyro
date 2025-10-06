@@ -22,9 +22,11 @@ const datosProductosPrueba = [
 ];
 
 // Cargar datos de prueba en localStorage
-function inicializarDatos() {
+async function inicializarProductos() {
     console.info('Inicializando datos de prueba...');
     try {
+        // Limpiar datos existentes
+        limpiarProductos();
         // Buscar datos en localStorage
         const productosGuardados = localStorage.getItem(STORAGE_PRODUCTOS);
         // Verificar si se encontraron datos guardados
@@ -41,8 +43,7 @@ function inicializarDatos() {
             console.log('Existen datos guardados en localStorage >> Cargando datos');
             traerProductos();
         }
-    }
-    catch (error) {
+    } catch (error) {
         console.error('Error en inicializarDatos():', error);
     }
 }
@@ -77,39 +78,20 @@ function traerProductos() {
 }
 
 // Vaciar localStorage
-function limpiarDatos() {
+function limpiarProductos() {
     console.log('Limpiando datos pre-existentes...');
     localStorage.removeItem(STORAGE_PRODUCTOS);
     productos = [];
     console.log('localStorage reseteado');
 }
 
-// Resetear datos
-function resetearDatos() {
-    console.info('Reseteando datos de prueba...');
-    limpiarDatos();
-    inicializarDatos();
-}
-
-// Obtener lista de los productos
-function obtenerProductos() {
-    return productos;
-}
-
 // Obtener lista de los productos con stock > 0
-function obtenerProductosDisponibles() {
+async function obtenerProductosDisponibles() {
     return productos.filter(producto => producto.estaDisponible());
-}
-
-// Mostrar listado de productos en consola
-function mostrarProductosEnConsola(productos) {
-    productos.forEach(producto => {
-        console.log(`${producto.mostrarInfo()}`);
-    });
 }
 
 // Exportar las funciones que necesitas usar en otros archivos
 export {
-    resetearDatos,
+    inicializarProductos,
     obtenerProductosDisponibles,
 };
