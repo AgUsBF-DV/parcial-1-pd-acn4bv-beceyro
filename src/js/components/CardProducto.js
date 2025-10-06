@@ -94,7 +94,7 @@ export class CardProducto {
         if (contenedorSelectCantidad) {
             this.selectCantidad = new SelectCantidad(
                 `select-cantidad-${this.#id}`,
-                (quantity) => this.handleQuantityChange(quantity)
+                (quantity) => this.manejarCambioCantidad(quantity)
             );
             contenedorSelectCantidad.appendChild(this.selectCantidad.getElemento());
         }
@@ -108,7 +108,7 @@ export class CardProducto {
         const contenedorBtnEliminar = this.element.querySelector(`#eliminar-${this.#id}`);
         if (contenedorBtnEliminar && this.#idProducto > 1) {
             this.btnEliminar = new BtnEliminarProducto(
-                () => this.handleDelete()
+                () => this.manejarEliminacionProducto()
             );
             contenedorBtnEliminar.appendChild(this.btnEliminar.getElemento());
         }
