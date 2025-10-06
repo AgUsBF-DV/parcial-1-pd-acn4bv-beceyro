@@ -6,22 +6,22 @@ import { CartManager } from '../components/CartManager.js';
 let cartManager = null;
 
 // Inicializar compoentes
-function inicializarCarrito() {
+async function inicializarCarrito() {
     console.info('Iniciando carrito...');
     try {
         // Obtener productos disponibles
-        const productosDisponibles = obtenerProductosDisponibles();
-        
+        const productosDisponibles = await obtenerProductosDisponibles();
+        // Validar si hay productos
         if (productosDisponibles.length === 0) {
             console.error('No hay productos disponibles');
             return;
         }
         // Crear el gestor del carrito
         cartManager = new CartManager(
-            'contenedor-productos',    // ID del contenedor
-            'btn-agregar-producto',    // ID del botón agregar
-            'campo-total-carrito',     // ID del display de total
-            productosDisponibles       // Array de productos
+            'contenedor-productos',
+            'btn-agregar-producto',
+            'campo-total-carrito',
+            productosDisponibles
         );      
         console.log('Carrito inicializado');
     } catch (error) {
