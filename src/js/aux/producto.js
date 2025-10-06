@@ -2,7 +2,7 @@
 import { Producto } from '../model/producto.js';
 
 // Key para localStorage
-const STORAGE_PRODUCTOS = 'productos_vivero';
+const key_productos = 'productos_vivero';
 
 // Lista de objetos Producto
 let productos = [];
@@ -28,7 +28,7 @@ async function inicializarProductos() {
         // Limpiar datos existentes
         limpiarProductos();
         // Buscar datos en localStorage
-        const productosGuardados = localStorage.getItem(STORAGE_PRODUCTOS);
+        const productosGuardados = localStorage.getItem(key_productos);
         // Verificar si se encontraron datos guardados
         if (!productosGuardados) {
             console.log('No se encontraron datos en localStorage');
@@ -50,7 +50,7 @@ async function inicializarProductos() {
 // Guardar productos en localStorage
 function guardarProductos(productos) {
     try {
-        localStorage.setItem(STORAGE_PRODUCTOS, JSON.stringify(productos));
+        localStorage.setItem(key_productos, JSON.stringify(productos));
         console.log('Productos guardados en localStorage');
     } catch (error) {
         console.error('Error en guardarProductos():', error);
@@ -61,7 +61,7 @@ function guardarProductos(productos) {
 function traerProductos() {
     try {
         // Buscar datos en localStorage
-        const productosGuardados = localStorage.getItem(STORAGE_PRODUCTOS);
+        const productosGuardados = localStorage.getItem(key_productos);
         // Verificar si se encontraron datos guardados
         if (productosGuardados) {
             // Parsear datos JSON
@@ -80,7 +80,7 @@ function traerProductos() {
 // Vaciar localStorage
 function limpiarProductos() {
     console.log('Limpiando datos pre-existentes...');
-    localStorage.removeItem(STORAGE_PRODUCTOS);
+    localStorage.removeItem(key_productos);
     productos = [];
     console.log('localStorage reseteado');
 }

@@ -2,7 +2,7 @@
 import { Cliente } from '../model/cliente.js';
 
 // Key para localStorage
-const STORAGE_CLIENTES = 'clientes_vivero';
+const key_clientes = 'clientes_vivero';
 
 // Lista en memoria
 let clientes = [];
@@ -99,7 +99,7 @@ function poblarSelectClientes(selectId = 'select-cliente') {
 // Guardar clientes en localStorage
 function guardarClientes(clientes) {
     try {
-        localStorage.setItem(STORAGE_CLIENTES, JSON.stringify(clientes));
+        localStorage.setItem(key_clientes, JSON.stringify(clientes));
         console.log(`Clientes guardados en localStorage`);
     } catch (error) {
         console.error('Error en guardarClientes():', error);
@@ -110,7 +110,7 @@ function guardarClientes(clientes) {
 function traerClientes() {
     try {
         // Buscar datos en localStorage
-        const clientesGuardados = localStorage.getItem(STORAGE_CLIENTES);
+        const clientesGuardados = localStorage.getItem(key_clientes);
         // Verificar si se encontraron datos guardados
         if (clientesGuardados) {
             // Parsear datos JSON
@@ -129,7 +129,7 @@ function traerClientes() {
 // Vaciar localStorage
 function limpiarClientes() {
     console.log('Limpiando datos pre-existentes...');
-    localStorage.removeItem(STORAGE_CLIENTES);
+    localStorage.removeItem(key_clientes);
     clientes = [];
     console.log('localStorage reseteado');
 }
