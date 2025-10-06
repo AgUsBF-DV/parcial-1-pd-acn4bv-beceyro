@@ -1,9 +1,9 @@
 // Importar clases/funciones necesarias
 import { obtenerProductosDisponibles } from './producto.js';
-import { CartManager } from '../components/CartManager.js';
+import { ControladorCarrito } from './CartManager.js';
 
 // Variables globales
-let cartManager = null;
+let controladorCarrito = null;
 
 // Inicializar compoentes
 async function inicializarCarrito() {
@@ -17,7 +17,7 @@ async function inicializarCarrito() {
             return;
         }
         // Crear el gestor del carrito
-        cartManager = new CartManager(
+        controladorCarrito = new ControladorCarrito(
             'contenedor-productos',
             'btn-agregar-producto',
             'campo-total-carrito',
