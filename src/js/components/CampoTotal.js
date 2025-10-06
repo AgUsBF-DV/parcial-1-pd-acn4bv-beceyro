@@ -37,10 +37,10 @@ export class CampoTotal {
     #crearElemento() {
         const div = document.createElement('div');
         div.innerHTML = `
-            <label class="block mb-1 font-bold text-emerald-800">
+            <label class="block mb-1 font-bold text-emerald-800 text-center">
                 Total
             </label>
-            <div class="p-3 bg-emerald-50 border border-emerald-800 rounded-md text-lg font-semibold text-emerald-900">
+            <div class="p-3 text-lg font-bold text-emerald-900 text-center">
                 $<span id="${this.#id}">0</span>
             </div>
         `;
