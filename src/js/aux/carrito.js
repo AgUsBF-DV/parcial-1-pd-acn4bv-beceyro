@@ -1,6 +1,6 @@
 // Importar clases/funciones necesarias
 import { obtenerProductosDisponibles } from './producto.js';
-import { ControladorCarrito } from './CartManager.js';
+import { ControladorCarrito } from './ControladorCarrito.js';
 
 // Variables globales
 let controladorCarrito = null;
