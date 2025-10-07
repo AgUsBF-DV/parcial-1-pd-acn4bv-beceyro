@@ -43,8 +43,29 @@ document.addEventListener('DOMContentLoaded', async function () {
                 campoVendedor.textContent = `${usuario.nombre} (DNI:${usuario.dni})`;
             }
         }
+        // Configurar link de cerrar sesión: confirmar y limpiar sessionStorage
+        try {
+            const linkCerrar = document.getElementById('link-cerrar-sesion');
+            if (linkCerrar) {
+                linkCerrar.addEventListener('click', (evento) => {
+                    evento.preventDefault();
+                    const confirmado = confirm('¿Desea salir? Se eliminará su sesión actual.');
+                    if (confirmado) {
+                        try {
+                            sessionStorage.removeItem('usuario');
+                        } catch (error) {
+                            console.warn('No se pudo eliminar sessionStorage.usuario:', error);
+                        }
+                        // Redirigir a logout
+                        location.href = './logout.html';
+                    }
+                });
+            }
+        } catch (errorCerrar) {
+            console.error('Error al cerrar sesión:', errorCerrar);
+        }
     } catch (error) {
-        console.error('Error al renderizar usuario desde sessionStorage:', error);
+        console.error('Error al renderizar el navbar:', error);
     }
 
     // Inicialización de datos de productos en localStorage
