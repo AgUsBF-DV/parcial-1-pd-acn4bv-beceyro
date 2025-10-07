@@ -41,8 +41,6 @@ export class Venta {
             if (almacenamiento) {
                 datos = JSON.parse(almacenamiento);
             }
-            // datos = almacenamiento ? JSON.parse(almacenamiento) : [];
-            // if (!Array.isArray(datos)) datos = [];
         } catch (error) {
             datos = [];
             console.error('Error en guardar() venta:', error);

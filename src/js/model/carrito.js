@@ -6,6 +6,7 @@ export class Carrito {
     #items;
     #total;
 
+    // Constructor
     constructor() {
         this.#items = [];
         this.#total = 0;

@@ -47,6 +47,7 @@ async function inicializarProductos() {
         console.error('Error en inicializarDatos():', error);
     }
 }
+
 // Guardar productos en localStorage
 function guardarProductos(productos) {
     try {

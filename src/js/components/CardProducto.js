@@ -25,14 +25,12 @@ export class CardProducto {
         this.#hayCambioCantidad = hayCambioCantidad;
         this.#hayEliminacion = hayEliminacion;
         this.element = this.#crearElemento();
-
         // Datos del producto actual
         this.productoSeleccionado = null;
         this.canidadProductoSeleccionado = 0;
         this.precioProductoSeleccionado = 0;
         this.subtotalProductoSeleccionado = 0;
-
-        // Crear el elemento raíz
+        // Iniciar
         this.#inicializar();
     }
 
@@ -49,7 +47,7 @@ export class CardProducto {
         };
     }
 
-    // Crear elemento DOM (método privado)
+    // Crear elemento DOM
     #crearElemento() {
         const div = document.createElement('div');
         div.id = this.#id;

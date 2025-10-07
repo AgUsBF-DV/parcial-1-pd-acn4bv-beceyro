@@ -91,7 +91,7 @@ export class ControladorCarrito {
         }
     }
 
-    // Lógica de manejo del submit (extraída del inicializador estático)
+    // Lógica de manejo del submit del formulario
     enviarFormulario(evento) {
         evento.preventDefault();
         try {
@@ -126,11 +126,15 @@ export class ControladorCarrito {
                     console.warn('No se pudo resetear el controlador:', errorReset);
                 }
             } catch (errorProcesar) {
-                console.error('Error al procesar la venta:', errorProcesar);
+                // Mostrar el mensaje de error
+                const mensaje = errorProcesar && errorProcesar.message ? errorProcesar.message : String(errorProcesar);
+                alert(mensaje);
             }
         } catch (errorSubmit) {
+            // Mostrar mensaje específico al usuario
+            const mensajeSubmit = errorSubmit && errorSubmit.message ? errorSubmit.message : String(errorSubmit);
+            alert('Ocurrió un error al procesar el formulario: ' + mensajeSubmit);
             console.error('Error en el submit del formulario de venta:', errorSubmit);
-            alert('Ocurrió un error al guardar la venta');
         }
     }
 
@@ -170,8 +174,9 @@ export class ControladorCarrito {
         this.calcularTotal();
     }
 
-    // Manerjar cambios de cantidad en la tarjeta
-    manejarCambioCantidad() {
+    // Implementacion con funcion flecha
+    // Manejar cambios de cantidad en la tarjeta
+    manejarCambioCantidad = () => {
         this.calcularTotal();
     }
 

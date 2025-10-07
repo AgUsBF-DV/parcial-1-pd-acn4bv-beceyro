@@ -44,10 +44,9 @@ export class BtnEliminarProducto {
     }
 
     // Manejar evento click
-    #actuarEventoClick(event) {
-        event.preventDefault();
-        event.stopPropagation();
-
+    #actuarEventoClick(evento) {
+        evento.preventDefault();
+        evento.stopPropagation();
         // Confirmación antes de eliminar
         if (this.#pedirConfirmacion()) {
             // Llamar callback si existe

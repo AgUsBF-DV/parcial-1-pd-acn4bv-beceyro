@@ -22,15 +22,19 @@ export class Cliente {
     getId() {
         return this.#id;
     }
+
     getNombreCompleto() {
         return this.#nombreCompleto;
     }
+
     getEmail() {
         return this.#email;
     }
+
     getDireccion() {
         return this.#direccion;
     }
+
     getTelefono() {
         return this.#telefono;
     }
@@ -39,12 +43,15 @@ export class Cliente {
     setNombreCompleto(nombreCompleto) {
         this.#nombreCompleto = String(nombreCompleto);
     }
+
     setEmail(email) {
         this.#email = String(email);
     }
+
     setDireccion(direccion) {
         this.#direccion = String(direccion);
     }
+
     setTelefono(telefono) {
         this.#telefono = String(telefono);
     }

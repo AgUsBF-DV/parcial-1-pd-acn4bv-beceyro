@@ -22,15 +22,19 @@ export class Producto {
     getId() {
         return this.#id;
     }
+
     getNombre() {
         return this.#nombre;
     }
+
     getNombreCientifico() {
         return this.#nombreCientifico;
     }
+
     getPrecio() {
         return this.#precio;
     }
+
     getStock() {
         return this.#stock;
     }
@@ -39,13 +43,16 @@ export class Producto {
     setNombre(nombre) {
         this.#nombre = String(nombre);
     }
+
     setNombreCientifico(nombreCientifico) {
         this.#nombreCientifico = String(nombreCientifico);
     }
+
     setPrecio(precio) {
         const n = Number(precio);
         this.#precio = Number.isFinite(n) ? n : this.#precio;
     }
+
     setStock(stock) {
         const n = Number(stock);
         this.#stock = Number.isFinite(n) ? n : this.#stock;

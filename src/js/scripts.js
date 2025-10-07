@@ -9,7 +9,7 @@ import { ControladorCarrito } from './aux/ControladorCarrito.js';
 
 // Ejecutar cuando se haya cargado el DOM
 document.addEventListener('DOMContentLoaded', async function () {
-    console.info('Iniciando el sistema...');
+    console.info('Iniciando el sistema (En modo testing)...');
     console.log();
 
     // Guardar sesión de usuario
@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', async function () {
             if (span) {
                 span.textContent = `Bienvenido, ${usuario.nombre}`;
             }
-
             // Campo vendedor: insertar Nombre (DNI:numero)
             const campoVendedor = document.getElementById('campo-vendedor');
             if (campoVendedor) {
@@ -49,8 +48,10 @@ document.addEventListener('DOMContentLoaded', async function () {
             if (linkCerrar) {
                 linkCerrar.addEventListener('click', (evento) => {
                     evento.preventDefault();
+                    // Confirmar
                     const confirmado = confirm('¿Desea salir? Se eliminará su sesión actual.');
                     if (confirmado) {
+                        // Limpiar sessionStorage
                         try {
                             sessionStorage.removeItem('usuario');
                         } catch (error) {
