@@ -68,6 +68,27 @@ export class ControladorCarrito {
         if (formulario) {
             formulario.addEventListener('submit', (evento) => this.enviarFormulario(evento));
         }
+        // Botón cancelar
+        const btnCancelar = document.getElementById('btn-cancelar-venta');
+        if (btnCancelar) {
+            btnCancelar.addEventListener('click', () => this.cancelarFormulario());
+        }
+    }
+
+    // Cancelar formulario confirmar y resetear estado
+    cancelarFormulario() {
+        const confirmacion = confirm('¿Cancelar venta?');
+        if (confirmacion) {
+            try {
+                const formulario = document.getElementById(this.#idFormulario);
+                if (formulario) {
+                    formulario.reset();
+                }
+                this.reset();
+            } catch (error) {
+                console.error('Error al resetear tras cancelar:', error);
+            }
+        }
     }
 
     // Lógica de manejo del submit (extraída del inicializador estático)
