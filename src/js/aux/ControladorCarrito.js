@@ -9,7 +9,6 @@ export class ControladorCarrito {
     // Valores predefinidos
     #idFormulario = 'formulario-venta';
     #idSelectCliente = 'select-cliente';
-    #idCampoVendedor = 'campo-vendedor';
     // Atributos
     #productosDisponibles;
     // Estado del carrito
@@ -77,10 +76,22 @@ export class ControladorCarrito {
         try {
             const selectCliente = document.getElementById(this.#idSelectCliente);
             const clienteId = selectCliente ? selectCliente.value : '';
-            const vendedorEl = document.getElementById(this.#idCampoVendedor);
-            const vendedor = vendedorEl ? vendedorEl.textContent.trim() : '';
+            // Obtener id del vendedor desde sessionStorage
+            let vendedorId = '';
             try {
-                this.procesarVenta(clienteId, vendedor);
+                const sesionUsuario = sessionStorage.getItem('usuario');
+                const usuario = sesionUsuario ? JSON.parse(sesionUsuario) : null;
+                if (usuario && (usuario.id !== undefined && usuario.id !== null)) {
+                    vendedorId = usuario.id;
+                } else {
+                    vendedorId = 0;
+                }
+            } catch (error) {
+                console.warn('No se pudo leer usuario de sessionStorage:', error);
+                vendedorId = 0;
+            }
+            try {
+                this.procesarVenta(clienteId, vendedorId);
                 alert('Venta guardada correctamente en localStorage');
                 console.log('Venta procesada:', { datos: this.getDatosVenta() });
                 // Limpiar formulario y resetear el carrito visual y su estado
@@ -236,7 +247,7 @@ export class ControladorCarrito {
     }
 
     // Procesar y guardar la venta (valida datos y usa el modelo Venta)
-    procesarVenta(clienteId, vendedor) {
+    procesarVenta(clienteId, vendedorId) {
         // Validaciones básicas
         if (!clienteId) {
             throw new Error('Seleccione un cliente antes de confirmar la venta.');
@@ -246,7 +257,7 @@ export class ControladorCarrito {
             throw new Error('Agregue al menos un producto con cantidad mayor a 0.');
         }
         // Crear venta y guardar
-        const nuevaVenta = new Venta(clienteId, vendedor, datos.items, datos.total);
+        const nuevaVenta = new Venta(clienteId, vendedorId, datos.items, datos.total);
         Venta.guardar(nuevaVenta);
         // return nuevaVenta;
     }
