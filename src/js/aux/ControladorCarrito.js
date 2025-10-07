@@ -44,7 +44,6 @@ export class ControladorCarrito {
         this.#agregarListener();
         // Agregar primera tarjeta de producto
         this.#agregarTarjetaProducto();
-        console.log('ControladorCarrito inicializado correctamente');
     }
 
     // Inicializador 
@@ -58,9 +57,7 @@ export class ControladorCarrito {
         }
         // Instanciar el controlador
         const controlador = new ControladorCarrito(productosDisponibles);
-        // Registrar listener del formulario delegando a método de instancia (usa defaults de la instancia)
-        // controlador.registrarFormulario();
-        // return controlador;
+        console.log('Controlador del carrito inicializado');
     }
 
     // Cargar listener de click
@@ -85,6 +82,7 @@ export class ControladorCarrito {
             try {
                 this.procesarVenta(clienteId, vendedor);
                 alert('Venta guardada correctamente en localStorage');
+                console.log('Venta procesada:', { datos: this.getDatosVenta() });
                 // Limpiar formulario y resetear el carrito visual y su estado
                 const formulario = document.getElementById('formulario-venta');
                 if (formulario) {
@@ -103,8 +101,6 @@ export class ControladorCarrito {
             alert('Ocurrió un error al guardar la venta');
         }
     }
-
-    
 
     // Agregar nueva tarjeta de producto
     #agregarTarjetaProducto() {
@@ -217,7 +213,7 @@ export class ControladorCarrito {
     }
 
     // Obtener datos listos para la venta
-    getVentaData() {
+    getDatosVenta() {
         const items = [];
         for (const [cardId, card] of this.#tarjetasProductos) {
             const datosProducto = card.getDatosProducto();
@@ -245,7 +241,7 @@ export class ControladorCarrito {
         if (!clienteId) {
             throw new Error('Seleccione un cliente antes de confirmar la venta.');
         }
-        const datos = this.getVentaData();
+        const datos = this.getDatosVenta();
         if (!datos.items || datos.items.length === 0) {
             throw new Error('Agregue al menos un producto con cantidad mayor a 0.');
         }
