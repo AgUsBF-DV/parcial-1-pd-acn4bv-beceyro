@@ -65,7 +65,7 @@
         </div>
 
         <!-- Formulario Venta -->
-        <form class="flex flex-col gap-5">
+        <form id="formulario-venta" class="flex flex-col gap-5">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
             <!-- Campo Cliente -->
             <div>
@@ -89,6 +89,7 @@
                 🧑‍🌾 Vendedor
               </label>
               <div
+                id="campo-vendedor"
                 class="p-3 border border-emerald-800 rounded-md text-emerald-800"
               >
                 Nombre (DNI=12345678)
@@ -163,7 +164,6 @@
     <!-- JavaScript -->
     <script type="module" src="./js/model/producto.js"></script>
     <script type="module" src="./js/aux/producto.js"></script>
-    <script type="module" src="./js/aux/carrito.js"></script>
     <script type="module" src="./js/scripts.js"></script>
   </body>
 </html>

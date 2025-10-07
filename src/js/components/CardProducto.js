@@ -42,6 +42,7 @@ export class CardProducto {
             id: this.#id,
             numeroProducto: this.#idProducto,
             productoId: this.productoSeleccionado ? this.productoSeleccionado.id : '',
+            productoNombre: this.productoSeleccionado ? this.productoSeleccionado.nombre : '',
             cantidad: this.canidadProductoSeleccionado,
             precio: this.precioProductoSeleccionado,
             subtotal: this.subtotalProductoSeleccionado

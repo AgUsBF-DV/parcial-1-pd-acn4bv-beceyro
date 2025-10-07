@@ -1,11 +1,11 @@
 // JS PRINCIPAL
 
-// Importar funciones desde aux/producto.js
+// Importar inicialización de productos
 import { inicializarProductos } from './aux/producto.js';
 // Importar inicialización de clientes
 import { inicializarClientes } from './aux/cliente.js';
-// Importar funciones desde aux/carrito.js
-import { inicializarCarrito } from './aux/carrito.js';
+// Importar inicializacion de carrito
+import { ControladorCarrito } from './aux/ControladorCarrito.js';
 
 // Ejecutar cuando se haya cargado el DOM
 document.addEventListener('DOMContentLoaded', async function () {
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     // Inicialización del carrito
     try {
-        await inicializarCarrito();
+        await ControladorCarrito.inicializarCarrito();
     } catch (error) {
         console.error('Error al inicializar el carrito:', error);
     }
